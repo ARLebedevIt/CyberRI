@@ -1,0 +1,19 @@
+@import '../../App.scss';
+
+.notFound__wrapper{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(315deg, rgba(64, 64, 64, 0.754), rgba(0, 0, 0, 0.811) 95%);
+  border: 3px solid rgb(131, 131, 131);
+  overflow: hidden;
+}
+.notFound__item{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-shadow: 0px calc(7px - (7 - 15) * ((100vw - 320px) / (1920 - 320))) 0px #a20000;
+  @include adaptiv__FZ(220, 65, 1920, px);
+}

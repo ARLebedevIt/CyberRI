@@ -1,0 +1,13 @@
+@import '../../App.scss' ;
+
+.footer__content{
+  grid-area: f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__text{
+  text-align: center;
+  @include adaptiv__FZ(21, 12, 1920, px);
+}

@@ -1,0 +1,89 @@
+@import '../../App.scss';
+
+.discourse__content {
+  background: rgba(0, 0, 0, 0.676) 95%;
+  display: flex;
+  flex-direction: column;
+}
+
+.discourse__title {
+  text-align: center;
+  font-size: 30px;
+  @media (max-width: 520px) {
+    padding-top: 40px;
+  }
+}
+
+.discourse__items {
+  display: flex;
+  flex-direction: column;
+}
+
+/*____________________________MESSAGE / MESSAGES__________________________________*/
+
+.discourse__messages {
+  padding-top: 20px;
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.discourse__message {
+  word-break: break-all;
+  padding: 10px;
+  display: flex;
+  gap: 30px;
+  border: 2px solid rgb(200, 0, 0) ;
+  background: linear-gradient(210deg, rgba(243, 2, 2, 0.485), rgba(0, 0, 0, 0.581) 45%);
+  @media (max-width: 520px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.discourse__textMessage {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.discourse__title {
+  @include adaptiv__FZ(50, 30, 1920, px);
+}
+
+.discourse__error {
+  @include adaptiv__FZ(30, 25, 1920, px);
+  text-align: center;
+}
+
+.discourse__nav {
+  display: flex;
+  gap: 40px;
+  padding-top: 20px;
+  align-items: center;
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.discourse__button {
+  font-size: 27px;
+  line-height: 60px;
+}
+
+.discourse__textarea {
+  width: 100%;
+  font-size: 27px;
+  @media (max-width: 520px) {
+    height: 20%;
+    font-size: 25px;
+  }
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+}

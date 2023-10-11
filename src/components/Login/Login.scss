@@ -1,0 +1,75 @@
+@import '../../App.scss';
+
+.auth__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__rememberMe {
+  font-size: 22px;
+  text-align: center;
+}
+
+.auth__item_captcha {
+  position: relative;
+  padding-bottom: 35%;
+  & img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.auth__item_error {
+  font-size: 25px;
+  @media(max-width: 550px) {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.auth__items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth__item_login {
+  flex-direction: column;
+  font-size: 50px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  @media(max-width: 550px) {
+    @include adaptiv__FZ(45, 35, 550, px);
+  }
+}
+
+.login__input {
+  line-height: 50px;
+  width: 300px;
+  font-size: 30px;
+  @media(max-width: 550px) {
+    line-height: 40px;
+    width: 60vw;
+    font-size: 25px;
+  }
+}
+
+.login__button {
+  width: 300px;
+  line-height: 55px;
+  align-self: center;
+  @include adaptiv__FZ(35, 21, 1920, px);
+  @media(max-width: 550px) {
+    width: 60vw;
+  }
+}
+
+.login__checkbox {
+  margin: 0 auto;
+}

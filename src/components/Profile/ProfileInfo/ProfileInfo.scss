@@ -1,0 +1,100 @@
+@import '../../../App.scss';
+
+.description__item_avatar {
+  & img {
+    max-width: 200px;
+    max-height: 350px;
+  }
+}
+
+.description__items {
+  display: flex;
+  gap: 50px;
+  @media (max-width: 1300px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+._descriptionEdit {
+  display: flex;
+  gap: 50px;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.description__edit__items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @include adaptiv__FZ(35, 25, 1920, px);
+  justify-content: center;
+  @media (max-width: 1024px) {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.description__items_bio {
+  display: flex;
+  flex-direction: column;
+  word-break: break-word;
+  gap: 15px;
+  @include adaptiv__FZ(35, 23, 1920, px);
+  & button {
+    margin-top: 40px;
+    line-height: 60px;
+    font-size: 30px;
+  }
+}
+
+.description__label {
+  cursor: pointer;
+  border: $borderDefault;
+  background: $backgroundColorDefault;
+  text-align: center;
+  width: 200px;
+  line-height: 65px;
+  @include adaptiv__FZ(25, 20, 1920, px);
+}
+
+.description__input_photo {
+  display: none;
+}
+
+.description__textarea {
+  height: 150px;
+  width: 25vw;
+  font-size: 27px;
+  @media (max-width: 1024px) {
+    line-height: 40px;
+    width: 65vw;
+  }
+}
+
+.description__edit_errors {
+  @include adaptiv__FZ(30, 25, 1920, px);
+}
+
+.description__button {
+  width: 200px;
+  @include adaptiv__FZ(27, 25, 1920, px);
+  line-height: 45px;
+  text-align: center;
+}
+
+.description__checkbox {
+  margin: 0 auto;
+}
+
+.profile__missingPost {
+  font-size: 40px;
+  padding: 30px 0px;
+  @media (max-width: 580px) {
+    text-align: center;
+  }
+}

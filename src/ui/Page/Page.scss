@@ -1,0 +1,10 @@
+@import '../../App.scss';
+
+.defaultPage {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: $backgroundColorDefault;
+  border: $borderDefault;
+  padding: 20px;
+  position: relative;
+}

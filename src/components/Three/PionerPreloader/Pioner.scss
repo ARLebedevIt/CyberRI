@@ -1,0 +1,19 @@
+@import '../../../App.scss';
+
+#threePreloaderContainer  {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+ }
+
+.wrapperPioner{
+  position: absolute;
+  top: 5%;
+  left: -7.5%;
+  width: 110%;
+  height: 110%;
+  z-index: -5;
+}

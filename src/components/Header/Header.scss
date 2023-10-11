@@ -1,0 +1,66 @@
+@import '../../App.scss';
+
+.header__content {
+  grid-area: h;
+  & img {
+    width: 60px;
+  }
+  @media (max-width: 1024px) {
+    & img {
+      width: 80px;
+    }
+  }
+  @media (max-width: 580px) {
+    & img {
+      width: 55px;
+    }
+  }
+}
+
+.header__items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  @media (max-width: 1024px) {
+    padding: 0 20px;
+  }
+}
+
+.header__burger {
+  display: none;
+}
+
+.header__login_name {
+  color: red;
+  transition: all .5s ease;
+  &:hover {
+    text-shadow: white 0px 0px 30px;
+  }
+}
+
+.header__login_link {
+  &:hover {
+    text-shadow: 0px 0px 30px red;
+    cursor: pointer;
+  }
+}
+
+.header__login {
+  font-size: 30px;
+  & a:nth-child(2) {
+    cursor: pointer;
+  }
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.header__login_withAuth {
+  display: flex;
+  gap: 10px;
+}
+
+.header__burger_button {
+  display: none;
+}

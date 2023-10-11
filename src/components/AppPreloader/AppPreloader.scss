@@ -1,0 +1,95 @@
+.appPreloader__content {
+  z-index: 10;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: grid;
+  height: 100vh;
+  background: linear-gradient(180deg, rgb(200, 0, 0), rgb(10, 10, 10) 50%);
+  transition: .8s all linear;
+  filter: brightness(130%);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(2px 2px, rgba(242, 242, 242, 0), rgba(0, 0, 0, 0.45));
+    background-size: 4px 4px;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  .appPreloader__content {
+    height: -webkit-fill-available;
+  }
+}
+
+._hideContainer {
+  transform: skew(90deg);
+  filter: grayscale(100);
+  opacity: 0;
+  z-index: -10;
+  animation: transitAnim .5s linear;
+}
+
+._hideSVG {
+  opacity: 0;
+  transition: .5s all linear;
+}
+
+.appPreloader__items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.appPreloader__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes transitAnim {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 100;
+  }
+  20% {
+    opacity: 50;
+  }
+  30% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 100;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 50;
+  }
+  70% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 100;
+  }
+  90% {
+    opacity: 50;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+  }
+}

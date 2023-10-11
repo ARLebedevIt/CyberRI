@@ -1,0 +1,117 @@
+@import '../../App.scss';
+
+.nav__content {
+  border: $borderDefault;
+  font-size: 50px;
+  grid-column: 1/2;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.521), rgba(144, 0, 0, 0.473) 32%, rgba(0, 0, 0, 0.911));
+  @media (max-width: 1024px) {
+    transform: translate3d(0, 0, 0);
+    padding: 0px 20px;
+    white-space: nowrap;
+    @include adaptiv__FZ(50, 40, 1024, px);
+    position: absolute;
+    right: -300%;
+    top: 0;
+    transition: all .5s ease;
+    height: 560px;
+    display: flex;
+    background: rgba(0, 0, 0, 0.816)
+  }
+  @media (min-width: 1025px) {
+    height: 400px;
+  }
+  @media(max-width: 580px) {
+    height: 450px;
+  }
+}
+
+.nav__login_row {
+  display: none;
+  @media (max-width: 1024px) {
+    display: block;
+  }
+}
+
+.nav__hiddenLink {
+  display: none;
+}
+
+.nav__list {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  transition: all .5s ease;
+  & li:hover {
+    text-shadow: rgba(222, 222, 222, 0.779) 0px 0px 30px;
+    transition: all .1s ease;
+  }
+}
+
+.nav__list .activeLink {
+  color: red;
+  transition: all .5s ease;
+}
+
+.nav__burger_button {
+  position: absolute;
+  z-index: 11;
+  & input {
+    display: none;
+  }
+  @media (max-width: 1024px) {
+    top: 20px;
+    right: 5%;
+    & div {
+      width: 50px;
+      height: 6px;
+      margin-top: 7px;
+      background-color: rgb(230, 0, 0);
+      transition: all 0.5s ease;
+    }
+  }
+  @media(max-width: 580px) {
+    top: 10px;
+    right: 5%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav_wrapper {
+    grid-row: 1/2;
+  }
+  ._burger {
+    z-index: 10;
+    right: -25px;
+  }
+  .nav__login {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media(max-width: 580px) {
+  ._burger {
+    right: -25px;
+    width: 100vw;
+  }
+}
+
+#toggle:checked+.burger .top_bun {
+  transform: rotate(-45deg);
+  margin-top: 24px;
+}
+
+#toggle:checked+.burger .middle_bun {
+  transform: rotate(45deg);
+  margin-top: -7px;
+}
+
+#toggle:checked+.burger .bottom_bun {
+  opacity: 0;
+  transform: rotate(45deg);
+}

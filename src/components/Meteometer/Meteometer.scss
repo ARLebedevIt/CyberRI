@@ -1,0 +1,121 @@
+@import '../../App.scss';
+
+.meteometer__wrapper {
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 580px) {
+    padding-top: 70px;
+  }
+}
+
+.meteometer__items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  flex: 1 0;
+  @include adaptiv__FZ(30, 20, 1920, px);
+}
+
+.meteometer__temp_extra {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include adaptiv__FZ(32, 23, 1920, px);
+  @media (max-width: 1200px) {
+    gap: 20px;
+  }
+  @media (max-width: 1024px) {
+    @include adaptiv__FZ(35, 27, 1024, px);
+  }
+}
+
+.meteometer__error {
+  @include adaptiv__FZ(25, 22, 1920, px);
+  position: relative;
+  text-align: center;
+  padding: 15px 0px;
+}
+
+.meteometer__location {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.meteometer__city_title {
+  @include adaptiv__FZ(63, 30, 1920, px);
+  @media (max-width: 1024px) {
+    @include adaptiv__FZ(63, 35, 1024, px);
+  }
+}
+
+.meteometer__temp {
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 1200px) {
+    gap: 20px;
+  }
+}
+
+.meteometer__temp_row {
+  display: grid;
+  grid-template: 1fr / 2fr 1fr;
+  justify-content: space-between;
+  gap: 30px;
+  @media (max-width: 1200px) {
+    grid-template: 1fr minmax(auto, auto) / 1fr;
+  }
+}
+
+.meteometer__extra_img {
+  position: relative;
+  padding-bottom: 160%;
+  & img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  @media (max-width: 1200px) {
+    grid-row: 1/2;
+    padding-bottom: 100%;
+  }
+  @media (max-width: 580px) {
+    padding-bottom: 140%;
+  }
+}
+
+.meteometer__units {
+  font-size: 80px;
+  text-align: center;
+}
+
+.meteometer__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 20px;
+  & input {
+    line-height: 40px;
+    width: 250px;
+    font-size: 30px;
+  }
+  & button {
+    line-height: 40px;
+    font-size: 30px;
+    width: 150px;
+  }
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+  @media (max-width: 400px) {
+    & input {
+      width: 200px;
+      font-size: 24px;
+    }
+  }
+}

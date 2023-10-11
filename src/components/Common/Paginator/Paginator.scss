@@ -1,0 +1,32 @@
+@import '../../../App.scss';
+
+.selectedPage {
+  background-color: $red-second-color;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginator {
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 20px;
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
+  & a {
+    width: 50px;
+    line-height: 37px;
+    font-size: 30px;
+  }
+}
+
+.paginator__buttons {
+  font-size: 30px;
+  line-height: 40px;
+}

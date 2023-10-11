@@ -1,0 +1,65 @@
+@import '../../App.scss';
+
+.space__wrapper {
+  text-align: center;
+  @media (max-width: 450px) {
+    padding-top: 70px;
+  }
+}
+
+.space__content {
+  display: grid;
+  height: 100%;
+}
+
+._hideTitle {
+  display: none;
+}
+
+.space__title {
+  @include adaptiv__FZ(50, 30, 1920, px);
+}
+
+.space__items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.space__text {
+  @include adaptiv__FZ(35, 20, 1920, px);
+}
+
+.space__button {
+  width: 150px;
+  line-height: 60px;
+  padding: 0px 45px;
+  align-self: center;
+  @include adaptiv__FZ(55, 45, 1920, px);
+}
+
+.space__img {
+  position: relative;
+  padding-bottom: 45%;
+  & img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 1200px) {
+    padding-bottom: 80%;
+  }
+  @media (max-width: 1024px) {
+    padding-bottom: 45%;
+  }
+  @media (max-width: 650px) {
+    padding-bottom: 62%;
+  }
+  @media (max-width: 450px) {
+    padding-bottom: 120%;
+  }
+}

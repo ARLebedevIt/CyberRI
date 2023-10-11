@@ -1,0 +1,27 @@
+.defaultCheckbox {
+  display: none;
+}
+.defaultCheckboxLabel {
+  // margin: 0 auto;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 0, 0, 0.233);
+  cursor: pointer;
+  text-align: center;
+  border: 2px solid red;
+  &::before {
+    content: '\2713';
+    display: inline-block;
+    color: white;
+    font-size: 30px;
+    transform: scale(0);
+    transition: 0.3s;
+    font-weight: 800;
+    padding-left: 810px;
+  }
+}
+
+.defaultCheckbox:checked + .defaultCheckboxLabel::before {
+  transform: scale(1);
+  padding-left: 0;
+}

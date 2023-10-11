@@ -1,0 +1,42 @@
+@import '../../../../App.scss';
+
+.post {
+  display: grid;
+  grid-template: 1fr / minmax(auto, auto) 1fr;
+  @include adaptiv__FZ(30, 25, 1920, px);
+  gap: 20px;
+  word-break: break-word;
+  background: linear-gradient(180deg, rgba(255, 0, 0, 0.36), rgba(0, 0, 0, 0.669) 60%);
+  border: $borderDefault;
+  padding: 20px;
+  & img {
+    justify-self: center;
+    width: 140px;
+    align-self: center;
+  }
+  @media (max-width: 1024px) {
+    gap: 3.5vw;
+    justify-content: center;
+  }
+  @media (max-width: 580px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.post__data {
+  display: grid;
+  gap: 20px;
+  @media (max-width: 580px) {
+    gap: 40px;
+  }
+}
+
+.post__date {
+  align-self: flex-end;
+  justify-self: right;
+  @media (max-width: 580px) {
+    text-align: center;
+  }
+}

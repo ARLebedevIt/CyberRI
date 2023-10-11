@@ -1,0 +1,10 @@
+@import '../../App.scss';
+
+.defaultTextarea {
+  background: linear-gradient(220deg, rgba(255, 0, 0, 0.36), rgba(0, 0, 0, 0.669) 80%);
+  padding: 8px;
+  border: $borderDefault;
+  position: relative;
+  overflow: hidden;
+  border: $borderDefault;
+}

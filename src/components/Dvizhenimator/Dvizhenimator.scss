@@ -1,0 +1,80 @@
+@import '../../App.scss';
+
+.dvizhenimator__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.dvizhenimator__text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+  & span:nth-child(1) {
+    @include adaptiv__FZ(50, 20, 1920, px);
+  }
+  & span:nth-child(2) {
+    @include adaptiv__FZ(30, 22, 1920, px);
+  }
+  @media (max-width: 580px) {
+    span:nth-child(1) {
+      display: none;
+    }
+  }
+}
+
+.dvizhenimator__error {
+  @include adaptiv__FZ(30, 22, 1920, px);
+  text-align: center;
+}
+
+.dvizhenimator__img {
+  position: relative;
+  padding-bottom: 43%;
+  & img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 580px) {
+    padding-bottom: 100%;
+  }
+}
+
+.dvizhenimator__items {
+  flex: 1 0;
+  height: 100%;
+
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media (max-width: 580px) {
+    padding-top: 50px;
+  }
+}
+
+.dvizhenimator__nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  & input {
+    height: 45px;
+    width: 200px;
+    font-size: 24px;
+    color: black;
+  }
+  & button {
+    line-height: 45px;
+    width: 200px;
+    @include adaptiv__FZ(30, 25, 1920, px);
+  }
+  @media (max-width: 580px) {
+    flex-direction: column;
+    gap: 30px;
+  }
+}

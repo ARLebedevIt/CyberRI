@@ -1,0 +1,43 @@
+@import '../../../App.scss';
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  gap: 20px;
+}
+
+.posts__ui {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 20px;
+  & span {
+    font-size: 40px;
+  }
+  & span:nth-child(3) {
+    font-size: 22px;
+  }
+  @media (max-width: 580px) {
+    align-items: center;
+  }
+}
+
+.post__button {
+  font-size: 30px;
+  line-height: 50px;
+  width: 200px;
+}
+
+.post__textarea {
+  height: 150px;
+  width: 30vw;
+  font-size: 27px;
+  @media (max-width: 580px) {
+    width: 250px;
+    font-size: 28px;
+  }
+  @media (max-width: 1024px) {
+    width: 70vw;
+  }
+}

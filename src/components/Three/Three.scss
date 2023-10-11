@@ -1,0 +1,24 @@
+@import '../../App.scss';
+
+canvas{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.wrapperThreeTwin, .wrapperThreeLivesey{
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+}
+
+@media (max-width: 580px) {
+  .wrapperThreeTwin {
+    min-height: 110vh;
+  }
+}
