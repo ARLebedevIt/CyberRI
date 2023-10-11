@@ -36,7 +36,7 @@ const Navbar: FC = memo(() => {
   return (
     <div className="nav_wrapper">
       <div className="nav__burger_button">
-        <input id="toggle" type="checkbox"></input>
+        <input id="toggle" type="checkbox" checked={menuOpen} readOnly></input>
         <label
           onClick={() => (menuOpen ? setMenuOpen(false) : setMenuOpen(true))}
           htmlFor="toggle"

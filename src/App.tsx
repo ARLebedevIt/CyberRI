@@ -1,5 +1,5 @@
 import "./App.scss"
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Header from "./components/Header/Header";
 import { Suspense, lazy, useEffect, useState, FC } from "react";
 import { connect, ConnectedProps, Provider, useSelector } from "react-redux";
@@ -49,7 +49,7 @@ const App: FC<AppContainerProps> = (props) => {
   }, [document.readyState])
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <AppPreloader apploaded={apploaded} />
       <div className='wrapper'>
         <div className="pixelFilter"></div>
@@ -77,7 +77,7 @@ const App: FC<AppContainerProps> = (props) => {
           <Footer />
         </div>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

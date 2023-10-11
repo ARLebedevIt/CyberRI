@@ -2,11 +2,6 @@
   "name": "cyberri",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ARLebedevIt.github.io/CyberRI",
-  "engines": {
-    "npm": "8.19.2",
-    "node": "18.12.1"
-  },
   "dependencies": {
     "@react-three/drei": "^9.88.0",
     "@react-three/fiber": "^8.14.5",

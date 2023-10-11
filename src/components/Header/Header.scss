@@ -1,13 +1,14 @@
 @import '../../App.scss';
 
 .header__content {
+  padding-top: 10px;
   grid-area: h;
   & img {
     width: 60px;
   }
   @media (max-width: 1024px) {
     & img {
-      width: 80px;
+      width: 70px;
     }
   }
   @media (max-width: 580px) {

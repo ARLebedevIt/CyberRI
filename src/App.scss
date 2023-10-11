@@ -11,6 +11,7 @@ body {
 }
 
 .wrapper {
+	height: 100dvh;
 	position: relative;
 	max-width: 100%;
 	overflow: hidden;
@@ -26,12 +27,6 @@ body {
 	transform: translateZ(0);
 }
 
-@supports (-webkit-touch-callout: none) {
-	.wrapper {
-		min-height: -webkit-fill-available;
-	}
-}
-
 .pixelFilter::before {
 	content: '';
 	background: radial-gradient(2px 2px, rgba(242, 242, 242, 0), rgba(0, 0, 0, 0.45));
@@ -44,7 +39,7 @@ body {
 }
 
 .content {
-	height: 100vh;
+	height: 100dvh;
 	gap: 25px;
 	mix-blend-mode: multiply;
 	grid-column: 2/3;
@@ -55,6 +50,14 @@ body {
 		'n c c'
 		'f f f';
 	position: relative;
+}
+
+
+@supports (-webkit-touch-callout: none) {
+	.content, .wrapper {
+		height: -webkit-fill-available;
+		height: 100dvh;
+	}
 }
 
 @media (max-width: 1024px) {
