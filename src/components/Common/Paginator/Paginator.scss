@@ -2,7 +2,6 @@
 
 .selectedPage {
   background-color: $red-second-color;
-  width: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,11 +15,12 @@
   justify-content: center;
   gap: 20px;
   padding-top: 20px;
-  @media (max-width: 550px) {
+  @media (max-width: 568px) {
     flex-direction: column;
   }
   & a {
-    width: 50px;
+    width: 100%;
+    max-width: 50px;
     line-height: 37px;
     font-size: 30px;
   }

@@ -9,20 +9,18 @@ import { useBrowserHook } from "../../types/types";
 
 const Mail: FC = React.memo(() => {
   const [modelChanger, setModelChanger] = useState<boolean>(false);
-  const {name, version}: useBrowserHook = useBrowser()
+  const { name, version }: useBrowserHook = useBrowser();
   return (
     <Page className="mail__content">
       <div
         style={{
-          display:
-          name == "Safari" && +version <= 15
-              ? "none"
-              : undefined,
+          display: name == "Safari" && +version <= 15 ? "none" : undefined,
         }}
-        className="mail_threeModel">
+        className="mail_threeModel"
+      >
         <ThirdWord modelChanger={modelChanger} />
       </div>
-      
+
       {modelChanger ? (
         <MailSuccess setModelChanger={setModelChanger} />
       ) : (

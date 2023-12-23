@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 
 type MailResnonseType = {
   config: {
@@ -15,10 +15,10 @@ type MailResnonseType = {
 export const mailAPI = {
   sendMail: (subject: string, name: string, mailAddress: string, text: string) => {
     const options = {
-      method: "GET",
+      method: 'GET',
       url: 'https://cyber-ri-backend.vercel.app/mail',
-      params: {subject: subject, name: name, mailAddress: mailAddress, text: text}
-     }
+      params: { subject: subject, name: name, mailAddress: mailAddress, text: text }
+    }
     return axios.request<MailResnonseType>(options)
   }
 }

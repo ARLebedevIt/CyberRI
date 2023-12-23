@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 import './Assistant.scss'
 
 type PropsType = {
@@ -7,9 +7,7 @@ type PropsType = {
 
 const AssistantNotes: FC<PropsType> = (props) => {
   return (
-    <div>
-        <span>{props.text}</span>
-    </div>
+      <span>{props.text}</span>
   )
 }
-export default AssistantNotes;
+export default AssistantNotes

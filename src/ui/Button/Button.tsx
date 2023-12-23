@@ -1,12 +1,13 @@
-import React, { ButtonHTMLAttributes, FC, InputHTMLAttributes, memo } from 'react'
+import React, { ButtonHTMLAttributes, ChangeEvent, MouseEventHandler } from 'react'
 import './Button.scss'
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-}
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 
-export const Button = (props: ButtonProps) => {
-  const {children, className, ...otherProps} = props
+export const Button = React.memo((props: ButtonProps) => {
+  const { children, className, ...otherProps } = props
   return (
-    <button className={`defaultButton ${className ?? ''}`} {...otherProps}>{children}</button>
+    <button className={`defaultButton ${className ?? ''}`} {...otherProps}>
+      {children}
+    </button>
   )
-}
+})

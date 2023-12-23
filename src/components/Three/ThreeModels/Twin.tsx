@@ -29,7 +29,7 @@ type GLTFResult = GLTF & {
   }
 }
 export function Twin(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('models/Twin-transformed.glb') as GLTFResult  
+  const { nodes, materials } = useGLTF('models/Twin-transformed.glb') as GLTFResult
   const head = useRef<Mesh>(null!)
   const body = useRef<Mesh>(null!)
   useFrame((state) => {

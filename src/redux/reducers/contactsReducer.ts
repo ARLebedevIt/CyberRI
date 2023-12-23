@@ -1,13 +1,14 @@
-import { InferActionTypes } from '../../types/types';
-import { mailAPI } from "../../api/mailAPI";
-import { CommonThunkType, ResultCodesOther } from "../../types/types";
+import { InferActionTypes } from '../../types/types'
+import { mailAPI } from '../../api/mailAPI'
+import { CommonThunkType, ResultCodesOther } from '../../types/types'
+import { Dispatch, SetStateAction } from 'react'
 
 type InitialStateType = {
   status: string | null
 }
 
 let initialState: InitialStateType = {
-  status: null,
+  status: null
 }
 
 type ActionType = InferActionTypes<typeof actionsContacts>
@@ -19,7 +20,7 @@ const contactsReducer = (state = initialState, action: ActionType): InitialState
     case 'CRI/CONTACTS/SET_MESSAGE_STATUS':
       return {
         ...state,
-        status: action.status,
+        status: action.status
       }
     default:
       return state
@@ -30,12 +31,20 @@ const actionsContacts = {
   messageStatus: (status: string) => ({ type: 'CRI/CONTACTS/SET_MESSAGE_STATUS', status: status } as const)
 }
 
-export const sendMailMessage = (subject: string, name: string, mailAddress: string, text: string,
-  setSubmitting: (isSubmitting: boolean) => void): ThunkType =>
+export const sendMailMessage =
+  (
+    subject: string,
+    name: string,
+    mailAddress: string,
+    text: string,
+    setSubmitting: (isSubmitting: boolean) => void,
+    changeModel: Dispatch<SetStateAction<boolean>>
+  ): ThunkType =>
   async (dispatch) => {
-    let response = await mailAPI.sendMail(subject, name, mailAddress, text);
+    let response = await mailAPI.sendMail(subject, name, mailAddress, text)
     if (response.status === ResultCodesOther.Success) {
       dispatch(actionsContacts.messageStatus('delivered'))
+      changeModel(true)
       setSubmitting(false)
     }
   }

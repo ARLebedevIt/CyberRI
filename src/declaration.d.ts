@@ -22,4 +22,6 @@ declare module '*.webm';
 declare module '*.mp4';
 declare module 'uuid'
 
-declare module 'cursor-effects'
+type OptionalRecord <K extends keyof any, T> = {
+  [P in K]?: T
+}

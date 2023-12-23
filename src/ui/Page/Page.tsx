@@ -9,7 +9,7 @@ export interface Page extends HTMLAttributes<HTMLDivElement> {
 export const Page = (props: Page) => {
   const { children, className, ...otherProps } = props
   return (
-    <div {...otherProps}  className={`defaultPage ${className ?? ''}`}>
+    <div {...otherProps} className={`defaultPage ${className ?? ''}`}>
       {children}
     </div>
   )

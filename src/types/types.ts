@@ -1,6 +1,6 @@
-import { ThunkAction, ThunkDispatch } from "redux-thunk"
-import { AppStateType } from "../redux/reduxStore"
-import { Action, AnyAction } from "redux"
+import { ThunkAction, ThunkDispatch } from 'redux-thunk'
+import { AppStateType } from '../redux/reduxStore'
+import { Action, AnyAction } from 'redux'
 
 export type InferActionTypes<T> = T extends { [key: string]: (...args: any[]) => infer U } ? U : never
 ///////////////////////////////////////////////////////////////////////////////////
@@ -42,9 +42,9 @@ export type ResponseGeneric<D = {} | ResultCodesCRI> = {
   data: D
 }
 
-export interface useBrowserHook  {
-  name: string,
+export interface useBrowserHook {
+  name: string
   version: string | number
 }
 
-export type AppDispatch = ThunkDispatch<AppStateType, any, AnyAction>; 
+export type AppDispatch = ThunkDispatch<AppStateType, any, AnyAction>

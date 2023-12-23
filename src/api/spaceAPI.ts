@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 
 type ImageFromSpaceType = {
   date: string
@@ -6,17 +6,12 @@ type ImageFromSpaceType = {
   url: string
 }
 
-type SpaceResponseType = {
-  data: ImageFromSpaceType[]
-  status: string
-}
-
 export const spaceAPI = {
   getItem: () => {
     const options = {
-      method: "GET",
+      method: 'GET',
       url: 'https://cyber-ri-backend.vercel.app/space'
-     }
-    return axios.request<SpaceResponseType>(options)
+    }
+    return axios.request<ImageFromSpaceType[]>(options)
   }
 }

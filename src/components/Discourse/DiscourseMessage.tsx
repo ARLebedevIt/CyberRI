@@ -1,9 +1,9 @@
 import './Discourse.scss'
-import { FC } from 'react';
-import { DiscourseMessageAPIType } from '../../api/discourseAPI';
+import { FC } from 'react'
+import { DiscourseMessageAPIType } from '../../api/discourseAPI'
 import userImage from '../../assets/images/avatarUser.jpg'
-import { Link } from 'react-router-dom';
-import React from 'react';
+import { Link } from 'react-router-dom'
+import React from 'react'
 
 type PropsType = {
   message: DiscourseMessageAPIType
@@ -11,11 +11,11 @@ type PropsType = {
 
 const DiscourseMessage: FC<PropsType> = React.memo(({ message }) => {
   return (
-    <div className='discourse__message'>
-        <Link target='_blank' to={`/profile/${message.userId}`}>
-          <img src={message.photo || userImage} alt="Здесь могла быть ваша картинка" />
-        </Link>
-      <div className='discourse__textMessage'>
+    <div className="discourse__message">
+      <Link target="_blank" to={`/profile/${message.userId}`}>
+        <img src={message.photo || userImage} alt="Здесь могла быть ваша картинка" />
+      </Link>
+      <div className="discourse__textMessage">
         <span>{message.userName}</span>
         <span>{message.message}</span>
       </div>

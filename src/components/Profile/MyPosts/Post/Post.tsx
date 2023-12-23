@@ -8,18 +8,18 @@ type PropsType = {
   profilePhoto: string | null
 }
 
-const Post: FC<PropsType> = memo((props) => {  
+const Post: FC<PropsType> = memo((props) => {
   return (
-    <div className='post__content'>
-      <div className='post'>
+    <div className="post__content">
+      <div className="post">
         <img src={props.profilePhoto ?? postAvatar} alt="Здесь могла быть ваша картинка" />
-        <div className='post__data'>
-          <div className='post__text'>{props.message}</div>
-          <div className='post__date'>{props.date}</div>
+        <div className="post__data">
+          <div className="post__text">{props.message}</div>
+          <div className="post__date">{props.date}</div>
         </div>
       </div>
     </div>
   )
 })
 
-export default Post;
+export default Post

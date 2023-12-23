@@ -1,4 +1,4 @@
-@import '../../App.scss';
+@import "../../App.scss";
 
 .nav__content {
   border: $borderDefault;
@@ -8,7 +8,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.521), rgba(144, 0, 0, 0.473) 32%, rgba(0, 0, 0, 0.911));
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.521),
+    rgba(144, 0, 0, 0.473) 32%,
+    rgba(0, 0, 0, 0.911)
+  );
   @media (max-width: 1024px) {
     transform: translate3d(0, 0, 0);
     padding: 0px 20px;
@@ -17,20 +22,21 @@
     position: absolute;
     right: -300%;
     top: 0;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
     height: 560px;
     display: flex;
-    background: rgba(0, 0, 0, 0.816)
+    background: rgba(0, 0, 0, 0.816);
   }
   @media (min-width: 1025px) {
     height: 400px;
   }
-  @media(max-width: 580px) {
+  @media (max-width: 580px) {
     height: 450px;
   }
 }
 
-.nav__login_row {
+.nav__login_row,
+.nav__login {
   display: none;
   @media (max-width: 1024px) {
     display: block;
@@ -41,20 +47,28 @@
   display: none;
 }
 
+.nav__link {
+  transition: all 0.5s ease;
+  &:hover {
+    text-shadow: rgba(222, 222, 222, 0.779) 0px 0px 30px;
+    transition: all 0.1s ease;
+  }
+  @media (min-width: 1025px) {
+    &.authLink {
+      display: none;
+    }
+  }
+}
+
 .nav__list {
   gap: 10px;
   display: flex;
   flex-direction: column;
-  transition: all .5s ease;
-  & li:hover {
-    text-shadow: rgba(222, 222, 222, 0.779) 0px 0px 30px;
-    transition: all .1s ease;
-  }
 }
 
 .nav__list .activeLink {
   color: red;
-  transition: all .5s ease;
+  transition: color 0.5s ease;
 }
 
 .nav__burger_button {
@@ -62,6 +76,9 @@
   z-index: 11;
   & input {
     display: none;
+  }
+  & label {
+    cursor: pointer;
   }
   @media (max-width: 1024px) {
     top: 20px;
@@ -74,7 +91,7 @@
       transition: all 0.5s ease;
     }
   }
-  @media(max-width: 580px) {
+  @media (max-width: 580px) {
     top: 10px;
     right: 5%;
   }
@@ -88,30 +105,26 @@
     z-index: 10;
     right: -25px;
   }
-  .nav__login {
-    display: flex;
-    flex-direction: column;
-  }
 }
 
-@media(max-width: 580px) {
+@media (max-width: 580px) {
   ._burger {
     right: -25px;
     width: 100vw;
   }
 }
 
-#toggle:checked+.burger .top_bun {
+#toggle:checked + .burger .top_bun {
   transform: rotate(-45deg);
   margin-top: 24px;
 }
 
-#toggle:checked+.burger .middle_bun {
+#toggle:checked + .burger .middle_bun {
   transform: rotate(45deg);
   margin-top: -7px;
 }
 
-#toggle:checked+.burger .bottom_bun {
+#toggle:checked + .burger .bottom_bun {
   opacity: 0;
   transform: rotate(45deg);
 }

@@ -1,32 +1,23 @@
-import React, { FC, useRef, useEffect } from "react";
-import './AppPreloader.scss';
-import PionerWrapper from "../Three/PionerPreloader/PionerWrapper";
-import preloaderSVG from "../../assets/images/preloader.svg";
+import React, { FC, useRef, useEffect } from 'react'
+import './AppPreloader.scss'
+import PionerWrapper from '../Three/PionerPreloader/PionerWrapper'
+import preloaderSVG from '../../assets/images/preloader.svg'
+import { usePreloader } from '../../hooks/usePreloader'
 
-type PropsType = {
-  apploaded: boolean | string
-}
+const AppPreloader: FC = React.memo(() => {
+  const apploaded = usePreloader()
 
-const AppPreloader: FC<PropsType> = React.memo(({ apploaded }) => {
-  const container = useRef<HTMLDivElement>(null!)
-  const preloader = useRef<HTMLDivElement>(null!)
-  useEffect(() => {
-    if (apploaded == 'ready') {
-      container.current.classList.add('_hideContainer')
-    }
-    if (apploaded == true) {
-      preloader.current.classList.add('_hideSVG')
-    }
-  }, [apploaded])
+  if (apploaded === 'deleteNode') {
+    return null
+  }
+
   return (
-    <div ref={container} className='appPreloader__content'>
-      <div className='appPreloader__items'>
-        <div ref={preloader} className='appPreloader__item'>
+    <div className={`appPreloader__content ${apploaded == 'ready' && '_hideContainer'}`}>
+      <div className="appPreloader__items">
+        <div className={`appPreloader__item ${apploaded === true && '_hideSVG'}`}>
           <img src={preloaderSVG} alt="" />
         </div>
-        <div>
-          <PionerWrapper />
-        </div>
+        <PionerWrapper />
       </div>
     </div>
   )

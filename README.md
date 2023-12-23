@@ -2,7 +2,7 @@
   <img src="https://i.ibb.co/5KHJxyS/Cyber-RIProject.png" alt="Project logo"  width="700">
 </p>
 
-[![en](https://img.shields.io/badge/lang-EN-lightgrey)](https://github.com/ARLebedevIt/CyberRI/blob/main/README.en.md)
+[![en](https://img.shields.io/badge/lang-EN-lightgrey)](https://github.com/ARLebedevIt/CyberRI/blob/master/README.en.md)
 
 <p align="center">
    <img src="https://img.shields.io/badge/version-v1.0-blue" alt="Version">

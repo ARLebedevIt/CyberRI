@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { Field, Form, Formik, FormikState } from 'formik'
+import { Form, Formik, FormikState } from 'formik'
 import './MyPosts.scss'
 import React, { FC } from 'react'
 import { useDispatch } from 'react-redux'
@@ -13,7 +13,6 @@ type PropsType = {
 }
 
 const MyPostCreator: FC<PropsType> = (props) => {
-  const deviceWidth = window.innerWidth
   const dispatch = useDispatch()
   let validationSchema = yup.object().shape({
     newPostText: yup.string().required('Пустое поле').max(100, 'Слишком длинная запись')
@@ -21,33 +20,45 @@ const MyPostCreator: FC<PropsType> = (props) => {
 
   const getDate = useFutureDate()
 
-  let addPost = (values: { newPostText: string }, 
-    { resetForm }: { resetForm: (nextState?: Partial<FormikState<{newPostText: string}>>) => void; }) => {
+  let addPost = (
+    values: { newPostText: string },
+    { resetForm }: { resetForm: (nextState?: Partial<FormikState<{ newPostText: string }>>) => void }
+  ) => {
     dispatch(actionsProfile.addPost(values.newPostText, getDate, props.postsId + 1))
-    resetForm({ values: { newPostText: ''} });
+    resetForm({ values: { newPostText: '' } })
   }
   return (
     <Formik
       initialValues={{
-        newPostText: '',
+        newPostText: ''
       }}
       validateOnBlur
       onSubmit={addPost}
       validationSchema={validationSchema}
     >
-      {props => (
-        <Form className='posts__ui'>
+      {(props) => (
+        <Form className="posts__ui">
           <span>Журнал</span>
-          <Textarea formik autoFocus={deviceWidth > 1200 && true} className='post__textarea'
-            placeholder='Увековечьте мысль...' name={'newPostText'}
-            value={props.values.newPostText} onChange={props.handleChange} />
+          <Textarea
+            formik
+            className="post__textarea"
+            placeholder="Увековечьте мысль..."
+            name={'newPostText'}
+            value={props.values.newPostText}
+            onChange={props.handleChange}
+          />
           <span>{props.errors.newPostText}</span>
-          <Button className='post__button' disabled={props.touched.newPostText && props.values.newPostText.length == 0} 
-            onClick={() => props.handleSubmit()}>Добавить</Button>
+          <Button
+            className="post__button"
+            disabled={props.touched.newPostText && props.values.newPostText.length == 0}
+            onClick={() => props.handleSubmit()}
+          >
+            Добавить
+          </Button>
         </Form>
       )}
     </Formik>
   )
 }
 
-export default MyPostCreator;
+export default MyPostCreator

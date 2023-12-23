@@ -1,26 +1,28 @@
 import './ProfileContainer.scss'
-import React, { FC, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserProfile, getStatus } from '../../redux/reducers/profileReducer';
-import { useParams, } from "react-router-dom";
-import ProfileInfo from './ProfileInfo/ProfileInfo';
-import { getAuthIdSelector } from '../../redux/selectors/profileSelectors';
-import withAuthRedirect from '../../redux/hoc/withAuthRedirect';
-import { Page } from '../../ui/Page/Page';
+import React, { FC, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserProfile, getStatus } from '../../redux/reducers/profileReducer'
+import { Params, useParams } from 'react-router-dom'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
+import { getAuthIdSelector } from '../../redux/selectors/profileSelectors'
+import withAuthRedirect from '../../redux/hoc/withAuthRedirect'
+import { Page } from '../../ui/Page/Page'
 
 const ProfileContainer: FC = () => {
-  let { userId }: any = useParams()
+  let { userId }: Readonly<Params<string>> = useParams()
   const dispatch: any = useDispatch()
-  const authId = useSelector(getAuthIdSelector)  
+  const authId = useSelector(getAuthIdSelector)
+  const [loading, setLoading] = useState(false)
+
   useEffect(() => {
-      let profileID = userId ? +userId : authId
-      if (!profileID) return
-      dispatch(getUserProfile(profileID))
-      dispatch(getStatus(authId!))
+    let profileID = userId ? +userId : authId
+    if (!profileID) return
+    dispatch(getUserProfile(profileID, setLoading))
+    dispatch(getStatus(profileID))
   }, [userId, authId])
   return (
-    <Page className='profile'>
-      <ProfileInfo userId={userId} isOwner={!userId} />
+    <Page className="profile">
+      <ProfileInfo setLoading={setLoading} loading={loading} isOwner={!userId} />
     </Page>
   )
 }

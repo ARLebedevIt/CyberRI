@@ -68,5 +68,8 @@
       "node_modules/(?!(react-leaflet|@react-leaflet|d3-*|axios))"
     ]
   },
-  "setupFiles": [ "./src/App.test.js", "jest-canvas-mock" ]
+  "setupFiles": [
+    "./src/App.test.js",
+    "jest-canvas-mock"
+  ]
 }

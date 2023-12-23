@@ -1,17 +1,14 @@
-import React, {
-  FC,
-  useEffect,
-} from "react";
-import "./Meteometer.scss";
-import weatherMClouds from "../../assets/images/weatherMClouds.jpg";
-import weatherClouds from "../../assets/images/weatherClouds.jpg";
-import weatherPClouds from "../../assets/images/weatherPClouds.jpg";
-import weatherClear from "../../assets/images/weatherClear.jpg";
-import weatherRain from "../../assets/images/weatherRain.jpg";
-import weatherSnow from "../../assets/images/weatherSnow.jpg";
-import weatherMist from "../../assets/images/weatherMist.jpg";
-import weatherWindy from "../../assets/images/weatherWindy.jpg";
-import { useDispatch, useSelector } from "react-redux";
+import React, { FC, useEffect } from 'react'
+import './Meteometer.scss'
+import weatherMClouds from '../../assets/images/weatherMClouds.jpg'
+import weatherClouds from '../../assets/images/weatherClouds.jpg'
+import weatherPClouds from '../../assets/images/weatherPClouds.jpg'
+import weatherClear from '../../assets/images/weatherClear.jpg'
+import weatherRain from '../../assets/images/weatherRain.jpg'
+import weatherSnow from '../../assets/images/weatherSnow.jpg'
+import weatherMist from '../../assets/images/weatherMist.jpg'
+import weatherWindy from '../../assets/images/weatherWindy.jpg'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   getCitySelector,
   getCountrySelector,
@@ -23,76 +20,76 @@ import {
   getTempSelector,
   getTempMaxSelector,
   getTempMinSelector,
-  getUnitsSelector,
-} from "../../redux/selectors/meteometerSelectors";
-import { getWeather } from "../../redux/reducers/meteometerReducer";
+  getUnitsSelector
+} from '../../redux/selectors/meteometerSelectors'
+import { getWeather } from '../../redux/reducers/meteometerReducer'
 
 type MeteometerType = {
-  setDisable?: React.Dispatch<React.SetStateAction<boolean>>;
-};
+  setDisable?: React.Dispatch<React.SetStateAction<boolean>>
+}
 
 const mapToWetherConditions: Record<string, string> = {
-  "облачно с прояснениями": weatherPClouds,
-  "небольшая облачность": weatherClouds,
-  "переменная облачность": weatherPClouds,
-  "пасмурно": weatherMClouds,
-  "ясно": weatherClear,
-  "дождь": weatherRain,
-  "небольшой проливной дождь": weatherRain,
-  "снегопад": weatherSnow,
-  "снег": weatherSnow,
-  "туман": weatherMist,
-  "ветренно": weatherWindy,
-  "небошой снегопад": weatherSnow,
-  "небольшой снег": weatherSnow,
-  "мгла": weatherMist,
-  "небольшой дождь": weatherRain,
-};
+  'облачно с прояснениями': weatherPClouds,
+  'небольшая облачность': weatherClouds,
+  'переменная облачность': weatherPClouds,
+  пасмурно: weatherMClouds,
+  ясно: weatherClear,
+  дождь: weatherRain,
+  'небольшой проливной дождь': weatherRain,
+  снегопад: weatherSnow,
+  снег: weatherSnow,
+  туман: weatherMist,
+  ветренно: weatherWindy,
+  'небошой снегопад': weatherSnow,
+  'небольшой снег': weatherSnow,
+  мгла: weatherMist,
+  'небольшой дождь': weatherRain
+}
 
 const metrics: Record<string, string> = {
-  metric: "℃",
-  imperial: "℉",
-};
+  metric: '℃',
+  imperial: '℉'
+}
 
 const Meteometer: FC<MeteometerType> = React.memo(({ setDisable }) => {
-  const dispatch: any = useDispatch();
-  const country = useSelector(getCountrySelector);
-  const city = useSelector(getCitySelector);
-  const feelsLike = useSelector(getFeelsLikeSelector);
-  const tempMin = useSelector(getTempMinSelector);
-  const tempMax = useSelector(getTempMaxSelector);
-  const humidity = useSelector(getHumiditySelector);
-  const sunrise = useSelector(getSunriseSelector);
-  const sunset = useSelector(getSunsetSelector);
-  const description = useSelector(getDescriptionSelector);
-  const currentWeatherImage = mapToWetherConditions[description];
-  const temp = useSelector(getTempSelector);
-  const units = useSelector(getUnitsSelector);
+  const dispatch: any = useDispatch()
+  const country = useSelector(getCountrySelector)
+  const city = useSelector(getCitySelector)
+  const feelsLike = useSelector(getFeelsLikeSelector)
+  const tempMin = useSelector(getTempMinSelector)
+  const tempMax = useSelector(getTempMaxSelector)
+  const humidity = useSelector(getHumiditySelector)
+  const sunrise = useSelector(getSunriseSelector)
+  const sunset = useSelector(getSunsetSelector)
+  const description = useSelector(getDescriptionSelector)
+  const currentWeatherImage = mapToWetherConditions[description]
+  const temp = useSelector(getTempSelector)
+  const units = useSelector(getUnitsSelector)
 
   useEffect(() => {
-    dispatch(getWeather(city, units, setDisable));
-  }, [city]);
+    dispatch(getWeather(city, units, setDisable))
+  }, [])
 
   const weatherRows = [
     {
-      name: `Ощущается как ${feelsLike}${metrics[units]}`,
+      name: `Ощущается как ${feelsLike}${metrics[units]}`
     },
     {
-      name: `Минимальная температура ${tempMin}${metrics[units]}`,
+      name: `Минимальная температура ${tempMin}${metrics[units]}`
     },
     {
-      name: `Максимальная температура ${tempMax}${metrics[units]}`,
+      name: `Максимальная температура ${tempMax}${metrics[units]}`
     },
     {
-      name: `Влажность ${humidity}%`,
+      name: `Влажность ${humidity}%`
     },
     {
-      name: `Рассвет ${sunrise} по МСК`,
+      name: `Рассвет ${sunrise} по МСК`
     },
     {
-      name: `Закат ${sunset} по МСК`,
-    },
-  ];
+      name: `Закат ${sunset} по МСК`
+    }
+  ]
 
   return (
     <>
@@ -111,20 +108,17 @@ const Meteometer: FC<MeteometerType> = React.memo(({ setDisable }) => {
           <div className="meteometer__temp_row">
             <div className="meteometer__temp_extra">
               {weatherRows.map((item) => {
-                return <span key={item.name}>{item.name}</span>;
+                return <span key={item.name}>{item.name}</span>
               })}
             </div>
             <div className="meteometer__extra_img">
-              <img
-                src={currentWeatherImage ?? ""}
-                alt="Здесь могла быть ваша картинка"
-              />
+              <img src={currentWeatherImage ?? ''} alt="Здесь могла быть ваша картинка" />
             </div>
           </div>
         </div>
       </div>
     </>
-  );
-});
+  )
+})
 
-export default Meteometer;
+export default Meteometer

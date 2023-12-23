@@ -1,9 +1,9 @@
-import React, { Dispatch, SetStateAction, memo } from "react";
-import { Button } from "../../ui/Button/Button";
+import React, { Dispatch, SetStateAction, memo } from 'react'
+import { Button } from '../../ui/Button/Button'
 
 type MailSuccessProps = {
   setModelChanger: Dispatch<SetStateAction<boolean>>
-};
+}
 
 export const MailSuccess = memo((props: MailSuccessProps) => {
   const { setModelChanger } = props
@@ -14,14 +14,11 @@ export const MailSuccess = memo((props: MailSuccessProps) => {
           <span>Письмо отправлено!</span>
         </div>
         <div className="mail__item_result">
-          <Button
-            className="mail__button"
-            onClick={() => setModelChanger(false)}
-            type={"submit"}>
+          <Button className="mail__button" onClick={() => setModelChanger(false)} type={'submit'}>
             Написать ещё
           </Button>
         </div>
       </div>
     </div>
-  );
-});
+  )
+})

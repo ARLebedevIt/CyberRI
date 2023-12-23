@@ -7,13 +7,14 @@ import React, {
 import "./Dvizhenimator.scss";
 import Input from "../../ui/Input/Input";
 import { Button } from "../../ui/Button/Button";
+import { useMediaQueries } from "../../hooks/useMediaQuery";
 
 type DvizhenimatorNavTypes = {
   setPic: (input: string, offset: number, setDisabled: Dispatch<SetStateAction<boolean>>) => void
 }
 
 const DvizhenimatorNav = memo(({setPic}: DvizhenimatorNavTypes) => {
-  const deviceWidth = innerWidth
+  const { lg } = useMediaQueries()
   const [input, setInput] = useState<string>('');
   const [disabled, setDisabled] = useState<boolean>(false);
   let randomOffset = Math.floor(Math.random() * 4);
@@ -22,7 +23,7 @@ const DvizhenimatorNav = memo(({setPic}: DvizhenimatorNavTypes) => {
     <div className="dvizhenimator__nav">
       <Input<string>
         value={input}
-        autoFocus={deviceWidth > 1200 && true}
+        autoFocus={lg}
         type="text"
         placeholder="Мысль..."
         onKeyDown={(e) =>

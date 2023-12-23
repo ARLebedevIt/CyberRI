@@ -1,45 +1,37 @@
-import { useDispatch, useSelector } from "react-redux";
-import usersSearch from "../../assets/images/iconSearch.png";
-import { Formik, Form, Field } from "formik";
-import { getFilterUsersSelector } from "../../redux/selectors/usersSelectors";
-import React, { FC } from "react";
-import { FilterType, requestUsers } from "../../redux/reducers/usersReducer";
-import "./Users.scss";
-import Input from "../../ui/Input/Input";
-import { Button } from "../../ui/Button/Button";
-import Checkbox from "../../ui/Checkbox/Checkbox";
+import { useDispatch, useSelector } from 'react-redux'
+import usersSearch from '../../assets/images/iconSearch.png'
+import { Formik, Form } from 'formik'
+import { getFilterUsersSelector } from '../../redux/selectors/usersSelectors'
+import React, { FC } from 'react'
+import { FilterType, actionsUsers, requestUsers } from '../../redux/reducers/usersReducer'
+import './Users.scss'
+import Input from '../../ui/Input/Input'
+import { Button } from '../../ui/Button/Button'
+import Checkbox from '../../ui/Checkbox/Checkbox'
 
-type PropsType = {
-  pageSize: number;
-};
-
-const UsersFilter: FC<PropsType> = React.memo(({ pageSize }) => {
-  const dispatch: any = useDispatch();
-  const filter = useSelector(getFilterUsersSelector);
-  const setFilter = (
-    values: FilterType,
-    onSubmitProps: {
-      setStatus: (param: string | string[]) => void;
-      setSubmitting: (isSubmitting: boolean) => void;
-    }
-  ) => {
-    dispatch(requestUsers(1, pageSize, values, onSubmitProps.setSubmitting));
-  };
+const UsersFilter: FC = React.memo(() => {
+  const dispatch: any = useDispatch()
+  const filter = useSelector(getFilterUsersSelector)
+  const setFilter = (values: FilterType) => {
+    dispatch(actionsUsers.setFilter(values))
+    dispatch(requestUsers())
+  }
   return (
     <Formik
       enableReinitialize={true}
       initialValues={{
         term: filter.term,
         friend: filter.friend,
+        currentPage: 1
       }}
       validateOnBlur
       onSubmit={setFilter}
     >
-      {({ values, handleChange, isValid, handleSubmit, isSubmitting }) => (
-        <Form className="users__form">
+      {({ values, handleChange, handleSubmit, isSubmitting }) => (
+        <Form onSubmit={handleSubmit} className="users__form">
           <Input
             formik
-            onKeyDown={(e) => e.key == "Enter" && handleSubmit()}
+            onKeyDown={(e) => e.key == 'Enter' && handleSubmit()}
             autoFocus
             id="input"
             onChange={handleChange}
@@ -50,29 +42,19 @@ const UsersFilter: FC<PropsType> = React.memo(({ pageSize }) => {
             formik
             labelFor="friend"
             id="friend"
-            value={
-              values.friend == "false"
-                ? false
-                : values.friend == ""
-                ? false
-                : true
-            }
+            checked={values.friend}
+            value={values.friend}
             name="friend"
             onChange={handleChange}
           />
           <span>Товарищи</span>
-          <Button
-            className="users_search_button"
-            onClick={() => handleSubmit()}
-            type={"submit"}
-            disabled={!isValid || isSubmitting}
-          >
+          <Button className="users_search_button" type="submit">
             <img src={usersSearch} alt="Здесь могла быть ваша картинка" />
           </Button>
         </Form>
       )}
     </Formik>
-  );
-});
+  )
+})
 
-export default UsersFilter;
+export default UsersFilter

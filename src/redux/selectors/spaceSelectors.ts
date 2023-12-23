@@ -1,4 +1,4 @@
-import { AppStateType } from "../reduxStore"
+import { AppStateType } from '../reduxStore'
 
 export const getImageSpaceSelector = (state: AppStateType) => state.space.img
 

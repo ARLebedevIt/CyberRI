@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 
 type ImagesFromDvizhenimator = {
   images: {
@@ -15,10 +15,10 @@ type DvizhenimatorResponseType = {
 export const dvizhenimatorAPI = {
   getPicture: (input: string, offset: number) => {
     const options = {
-      method: "GET",
+      method: 'GET',
       url: 'https://cyber-ri-backend.vercel.app/dvizhenimator',
-      params: {input: input, offset: offset}
-     }
+      params: { input: input, offset: offset }
+    }
     return axios.request<DvizhenimatorResponseType>(options)
   }
 }

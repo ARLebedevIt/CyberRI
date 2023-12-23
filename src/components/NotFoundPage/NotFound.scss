@@ -1,6 +1,6 @@
 @import '../../App.scss';
 
-.notFound__wrapper{
+.notFound__wrapper {
   height: 100%;
   width: 100%;
   display: flex;
@@ -10,7 +10,7 @@
   border: 3px solid rgb(131, 131, 131);
   overflow: hidden;
 }
-.notFound__item{
+.notFound__item {
   display: flex;
   flex-direction: column;
   text-align: center;

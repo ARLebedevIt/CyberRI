@@ -1,8 +1,8 @@
-import { Dispatch } from "redux"
-import { InferActionTypes } from "../../types/types"
+import { Dispatch } from 'redux'
+import { InferActionTypes } from '../../types/types'
 
 let initialState = {
-  notes: 'Заметок нет',
+  notes: 'Заметок нет'
 }
 
 type InitialStateType = typeof initialState
@@ -14,7 +14,7 @@ const assistantReducer = (state = initialState, action: ActionTypes): InitialSta
     case 'CRI/ASSISTANT/SET_NOTE':
       return {
         ...state,
-        notes: action.text,
+        notes: action.text
       }
     default:
       return state

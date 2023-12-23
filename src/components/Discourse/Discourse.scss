@@ -33,12 +33,17 @@
   padding: 10px;
   display: flex;
   gap: 30px;
-  border: 2px solid rgb(200, 0, 0) ;
+  border: 2px solid rgb(200, 0, 0);
   background: linear-gradient(210deg, rgba(243, 2, 2, 0.485), rgba(0, 0, 0, 0.581) 45%);
   @media (max-width: 520px) {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  & img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
   }
 }
 

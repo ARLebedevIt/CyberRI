@@ -8,8 +8,7 @@
   display: grid;
   height: 100vh;
   background: linear-gradient(180deg, rgb(200, 0, 0), rgb(10, 10, 10) 50%);
-  transition: .8s all linear;
-  filter: brightness(130%);
+  transition: 0.8s all linear;
   &::before {
     content: '';
     position: absolute;
@@ -30,15 +29,17 @@
 
 ._hideContainer {
   transform: skew(90deg);
-  filter: grayscale(100);
   opacity: 0;
   z-index: -10;
-  animation: transitAnim .5s linear;
+  animation: transitAnim 0.5s linear;
+  & canvas {
+    filter: grayscale(100);
+  }
 }
 
 ._hideSVG {
   opacity: 0;
-  transition: .5s all linear;
+  transition: 0.5s all linear;
 }
 
 .appPreloader__items {
@@ -57,37 +58,37 @@
 
 @keyframes transitAnim {
   0% {
-    opacity: 0;
+    opacity: 0%;
   }
   10% {
-    opacity: 100;
+    opacity: 100%;
   }
   20% {
-    opacity: 50;
+    opacity: 50%;
   }
   30% {
-    opacity: 0;
+    opacity: 0%;
   }
   40% {
-    opacity: 100;
+    opacity: 100%;
   }
   50% {
-    opacity: 0;
+    opacity: 0%;
   }
   60% {
-    opacity: 50;
+    opacity: 50%;
   }
   70% {
-    opacity: 0;
+    opacity: 0%;
   }
   80% {
-    opacity: 100;
+    opacity: 100%;
   }
   90% {
-    opacity: 50;
+    opacity: 50%;
   }
   99% {
-    opacity: 0;
+    opacity: 0%;
   }
   100% {
     display: none;

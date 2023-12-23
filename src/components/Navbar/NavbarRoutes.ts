@@ -2,22 +2,21 @@ export const routesNavbar = [
   {
     name: 'Биокарта',
     route: '/profile',
-    onlyAuth: true,
+    onlyAuth: true
   },
   {
     name: 'КиберНИИ',
     route: '/lab',
-    onlyAuth: false,
+    onlyAuth: false
   },
   {
     name: 'Товарищи',
     route: '/users',
-    onlyAuth: true,
+    onlyAuth: true
   },
   {
     name: 'Контакты',
     route: '/mail',
-    onlyAuth: false,
-  },
-  
+    onlyAuth: false
+  }
 ]

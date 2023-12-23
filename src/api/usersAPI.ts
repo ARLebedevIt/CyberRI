@@ -1,13 +1,13 @@
-import { PhotosType, ResponseGeneric } from "../types/types"
-import { instanceCRI } from "./commonAPI"
-import { profileAPI } from "./profileAPI"
+import { PhotosType, ResponseGeneric } from '../types/types'
+import { instanceCRI } from './commonAPI'
+import { profileAPI } from './profileAPI'
 
 export type UserType = {
   id: number
   name: string
   status?: string
   photos: PhotosType
-  followed : boolean
+  followed: boolean
 }
 
 type GetUsersResponseType = {
@@ -17,15 +17,16 @@ type GetUsersResponseType = {
 }
 
 export const usersAPI = {
-  getUsers(currentPage: number, pageSize: number, term: string, friend: string | boolean) {
-    return instanceCRI.get<GetUsersResponseType>(`users?page=${currentPage}&count=${pageSize}&term=${term}`+(friend === null ? '' : `&friend=${friend}`))
-    .then(response => response.data)
+  getUsers(pageSize: number, term: string, friend: boolean, page: number) {
+    return instanceCRI
+      .get<GetUsersResponseType>(`users?page=${page}&count=${pageSize}&term=${term}&friend=${friend}`)
+      .then((response) => response.data)
   },
   unfollow(id: number) {
-    return instanceCRI.delete<ResponseGeneric>(`follow/${id}`).then(response => response.data)
+    return instanceCRI.delete<ResponseGeneric>(`follow/${id}`).then((response) => response.data)
   },
   follow(id: number) {
-    return instanceCRI.post<ResponseGeneric>(`follow/${id}`).then(response => response.data)
+    return instanceCRI.post<ResponseGeneric>(`follow/${id}`).then((response) => response.data)
   },
   getUserProfile(id: number) {
     return profileAPI.getUserProfile(id)

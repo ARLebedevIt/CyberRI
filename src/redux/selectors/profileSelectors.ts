@@ -1,4 +1,4 @@
-import { AppStateType } from "../reduxStore"
+import { AppStateType } from '../reduxStore'
 
 export const getProfileSelector = (state: AppStateType) => state.profilePage.profile
 
